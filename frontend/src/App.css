@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Montserrat&display=swap');
+
+@media only screen and (max-width: 989px) {
+    .login-desktop{
+        display:none;
+    }
+  }
+
+
+@media only screen and (min-width: 1068px) {
+    .login-desktop{
+        display:block;
+    }
+  }
+
+html *{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.bg-light {
+    background-color:#8aaae5 !important;
+    color: #fff !important;;
+  }
+.nav-link{
+    color:#fff !important;
+}
+.navbar-brand{
+    color:#fff !important;
+    font-family: 'Barlow Condensed';
+    font-size: 30px;
+}
+
+.pasa-links:hover{
+    background-color: #708abb;
+    border-bottom:2px solid #fff;
+}
+
+.active{
+    border-bottom:2px solid #fff;
+}
