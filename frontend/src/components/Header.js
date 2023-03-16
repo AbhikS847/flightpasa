@@ -4,6 +4,7 @@ import {LinkContainer} from 'react-router-bootstrap';
 import {BsFillPersonFill} from 'react-icons/bs';
 import {RiMenuFill} from 'react-icons/ri';
 import {TfiClose} from 'react-icons/tfi';
+import 'animate.css';
 
 const resetActiveClasses = () => {
   const activeNames = document.querySelectorAll('.pasa-links');

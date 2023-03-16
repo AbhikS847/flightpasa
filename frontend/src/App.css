@@ -2,10 +2,6 @@
 
 @media only screen and (max-width: 989px) {
 
-    .d-none{
-        transition: ease-in-out 0.5s !important;
-    }
-
     .mobile-menu{
         position: absolute;
         background-color: #708abb;
@@ -14,6 +10,8 @@
         width:100%;
         transition: ease-in-out 0.5s;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        animation: fadeInRight; /* referring directly to the animation's @keyframe declaration */
+        animation-duration: 0.5s; /* don't forget to set a duration! */
     }
 
     .mobile-menu-padding{
@@ -27,7 +25,7 @@
     .login-mobile{
         display:block;
         position: relative;
-        transition: ease-in-out 0.5s;
+        animation: fadeInLeft; /* referring directly to the animation's @keyframe declaration */
       }
 
   }
