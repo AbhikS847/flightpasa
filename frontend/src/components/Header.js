@@ -43,16 +43,16 @@ const Header = () => {
             <Nav.Link onClick={closeMenu} className="pasa-links" href="#flights">Post a flight</Nav.Link>
             <Nav.Link onClick={closeMenu} className="pasa-links" href="#items">Send items</Nav.Link>
         </Nav>
-        <div style={{marginTop:10, backgroundColor:"#fff", color:"#708abb", border:'2px solid #fff', fontSize:15, textAlign:'center', fontFamily:'Barlow Condensed', fontSize:30, boxShadow:'rgba(0, 0, 0, 0.24) 0px 3px 8px'}}>Account </div>
+        <div style={{marginTop:10, backgroundColor:"#fff", color:"#708abb", border:'2px solid #fff', textAlign:'center', fontFamily:'Barlow Condensed', fontSize:30, boxShadow:'rgba(0, 0, 0, 0.24) 0px 3px 8px'}}>Account </div>
         <Nav>
             <Nav.Link onClick={resetActiveClasses} className="pasa-links"  href="#5">
               <div className="d-flex align-items-center">
-              <div className="px-2" style={{fontSize:22, fontFamily:'Barlow Condensed'}}>LOG IN</div>
+              <div className="px-2" style={{fontSize:24, fontFamily:'Barlow Condensed'}}>LOG IN</div>
               </div>
             </Nav.Link>
             <Nav.Link onClick={resetActiveClasses} className="pasa-links signup" href="#6">
               <div className="d-flex align-items-center">
-              <div className="px-2" style={{fontSize:22, fontFamily:'Barlow Condensed'}}>SIGN UP</div>
+              <div className="px-2" style={{fontSize:24, fontFamily:'Barlow Condensed'}}>SIGN UP</div>
               </div>
             </Nav.Link>
         </Nav>
