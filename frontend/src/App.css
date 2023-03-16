@@ -1,16 +1,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&family=Montserrat&display=swap');
 
 @media only screen and (max-width: 989px) {
+
+    .d-none{
+        transition: ease-in-out 0.5s !important;
+    }
+
+    .mobile-menu{
+        position: absolute;
+        background-color: #708abb;
+        top:0;
+        right:0;
+        width:100%;
+        transition: ease-in-out 0.5s;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    }
+
+    .mobile-menu-padding{
+        padding:8px;
+    }
+    
     .login-desktop{
         display:none;
     }
+
+    .login-mobile{
+        display:block;
+        position: relative;
+        transition: ease-in-out 0.5s;
+      }
+
   }
 
-
 @media only screen and (min-width: 1068px) {
+
+    .mobile-menu{
+        display:none;
+    }
+
     .login-desktop{
         display:block;
     }
+
+    .login-mobile{
+        display:none;
+    }
+
   }
 
 html *{
@@ -25,7 +60,6 @@ html *{
     color:#fff !important;
 }
 .navbar-brand{
-    color:#fff !important;
     font-family: 'Barlow Condensed';
     font-size: 30px;
 }
@@ -37,4 +71,8 @@ html *{
 
 .active{
     border-bottom:2px solid #fff;
+}
+
+.navbar-headings{
+    color:#708abb !important;
 }
