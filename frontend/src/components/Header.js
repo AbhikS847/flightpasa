@@ -39,23 +39,24 @@ const Header = () => {
         <Button style={{position:'absolute', right:4, top:12, border:'unset', backgroundColor:'unset', color:'#708abb'}} onClick={closeMenu}><TfiClose size={28}/></Button>
         </div>
         <Nav className="mobile-menu-padding" style={{fontSize:20}}>
-            <Nav.Link onClick={closeMenu} className="pasa-links" href="#home">Flights</Nav.Link>
-            <Nav.Link onClick={closeMenu} className="pasa-links" href="#pasa">Find a pasa</Nav.Link>
-            <Nav.Link onClick={closeMenu} className="pasa-links" href="#flights">Post a flight</Nav.Link>
-            <Nav.Link onClick={closeMenu} className="pasa-links" href="#items">Send items</Nav.Link>
+            <LinkContainer to="/"><Nav.Link onClick={closeMenu} className="pasa-links">Flights</Nav.Link></LinkContainer>
+            <LinkContainer to="/pasa"><Nav.Link onClick={closeMenu} className="pasa-links" href="#pasa">Find a pasa</Nav.Link></LinkContainer>
+            <LinkContainer to="/flights"><Nav.Link onClick={closeMenu} className="pasa-links" href="#flights">Post a flight</Nav.Link></LinkContainer>
+            <LinkContainer to="/items"><Nav.Link onClick={closeMenu} className="pasa-links" href="#items">Send items</Nav.Link></LinkContainer>
         </Nav>
         <div style={{marginTop:10, backgroundColor:"#fff", color:"#708abb", border:'2px solid #fff', textAlign:'center', fontFamily:'Barlow Condensed', fontSize:30, boxShadow:'rgba(0, 0, 0, 0.24) 0px 3px 8px'}}>Account </div>
         <Nav>
-            <Nav.Link onClick={resetActiveClasses} className="pasa-links"  href="#5">
+            <LinkContainer to="/login"><Nav.Link onClick={resetActiveClasses} className="pasa-links">
               <div className="d-flex align-items-center">
               <div className="px-2" style={{fontSize:24, fontFamily:'Barlow Condensed'}}>LOG IN</div>
               </div>
-            </Nav.Link>
-            <Nav.Link onClick={resetActiveClasses} className="pasa-links signup" href="#6">
+            </Nav.Link></LinkContainer>
+            <LinkContainer to="/signup"><Nav.Link onClick={resetActiveClasses} className="pasa-links signup" href="#6">
               <div className="d-flex align-items-center">
               <div className="px-2" style={{fontSize:24, fontFamily:'Barlow Condensed'}}>SIGN UP</div>
               </div>
             </Nav.Link>
+            </LinkContainer>
         </Nav>
         </div>
         <div className="login-mobile">
@@ -63,25 +64,29 @@ const Header = () => {
         </div>
         <div className="login-desktop">
         <Nav style={{fontSize:20}}>
-            <Nav.Link className="pasa-links" href="#home">Flights</Nav.Link>
-            <Nav.Link className="pasa-links" href="#pasa">Find a pasa</Nav.Link>
-            <Nav.Link className="pasa-links" href="#flights">Post a flight</Nav.Link>
-            <Nav.Link className="pasa-links" href="#items">Send items</Nav.Link>
+            <LinkContainer to="/"><Nav.Link className="pasa-links">Flights</Nav.Link></LinkContainer>
+            <LinkContainer to="/pasa"><Nav.Link className="pasa-links">Find a pasa</Nav.Link></LinkContainer>
+            <LinkContainer to="/flights"><Nav.Link className="pasa-links">Post a flight</Nav.Link></LinkContainer>
+            <LinkContainer to="/items"><Nav.Link className="pasa-links">Send items</Nav.Link></LinkContainer>
         </Nav>
         </div>
         <div className="login-desktop" style={{justifyContent:'flex-end'}}>
         <Nav>
+        <LinkContainer to="/login">
             <Nav.Link onClick={resetActiveClasses} className="pasa-links"  href="#5">
               <div className="d-flex align-items-center">
               <BsFillPersonFill size={20} />
               <div className="px-2" style={{fontSize:22, fontFamily:'Barlow Condensed'}}>LOG IN</div>
               </div>
             </Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/signup">
             <Nav.Link onClick={resetActiveClasses} className="pasa-links signup"  href="#6">
               <div className="d-flex align-items-center">
               <div className="px-2" style={{fontSize:22, fontFamily:'Barlow Condensed', backgroundColor:'#fff', color:'#8aaae5'}}>SIGN UP</div>
               </div>
             </Nav.Link>
+          </LinkContainer>
         </Nav>
         </div>
         </Container>
