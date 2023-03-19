@@ -2,6 +2,10 @@
 
 @media only screen and (max-width: 989px) {
 
+    .component-theme{
+        width:100%;
+    }
+
     .mobile-menu{
         position: absolute;
         background-color: #708abb;
@@ -31,6 +35,9 @@
   }
 
 @media only screen and (min-width: 1068px) {
+    .component-theme{
+        width:40%;
+    }
 
     .mobile-menu{
         display:none;
@@ -73,4 +80,54 @@ html *{
 
 .navbar-headings{
     color:#708abb !important;
+}
+
+.component-theme{
+    padding:32px;
+}
+
+.component-theme .btn{
+    background-color: #8aaae5;
+    border:unset;
+    color:#fff;
+    font-family: 'Barlow Condensed';
+    width:100%;
+    font-size: 30px;
+}
+
+.component-theme h2{
+    color:#8aaae5;
+    font-weight: 700;
+    font-size: 50px;
+}
+
+.component-boxes{
+    padding:16px;
+    background-color:#8aaae5;
+    color:#fff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.component-form{
+    padding-top:16px;
+}
+
+.component-form-input{
+    height:50px;
+    border:unset;
+    border-bottom:4px solid #eaeaea;
+}
+
+.component-form-input:focus{
+    border:unset;
+    box-shadow: unset;
+    border-bottom:4px solid #8aaae5;
+}
+
+.btn:focus{
+    background-color:#708abb;
+}
+
+.small{
+    color:#708abb;
 }
