@@ -1,5 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import { ToastContainer } from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css';
 import Header from './components/Header';
 import Home from './components/Home';
 import Login from './components/Login';
@@ -19,6 +21,7 @@ function App() {
       <Route path="*" element={<ErrorPage />}></Route>
     </Routes>
     </div>
+    <ToastContainer />
     </BrowserRouter>
   );
 }
