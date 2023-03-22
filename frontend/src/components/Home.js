@@ -7,10 +7,11 @@ const Home = () => {
   const [formData, setFormData] = useState({
     flightFrom:'',
     flightTo:'',
-    passengers:0
+    passengers:0,
+    desc:'',
   })
 
-  const {flightFrom, flightTo, passengers} = formData;
+  const {flightFrom, flightTo, passengers, desc} = formData;
 
   const handleSubmit = (e) =>{
     e.preventDefault();
@@ -40,6 +41,11 @@ const Home = () => {
       <Form.Group className="mb-3">
       <div className="component-subheading"><h4>Passengers</h4></div>
         <Form.Control className="component-form-input text-center" id='passengers' name='passengers' value={passengers} onChange={onChange} type="number" placeholder="Enter number of passengers" required/>
+      </Form.Group>
+      <Form.Group className="mb-3">
+      <div className="component-subheading"><h4>Description</h4></div>
+        <Form.Control as="textarea" rows={4} className="component-form-textarea text-center" id='desc' name='desc' value={desc} onChange={onChange} type="text" placeholder="Enter passenger details here.."/>
+        <div className="small">Example: Two adults flying from KTM to MEL on 20th April...</div>
       </Form.Group>
       <Button className="btn-secondary btn-sm mt-2" type='submit'>POST FLIGHT</Button>
       <Button className="btn btn-sm mt-4" type='submit'>EXPLORE FLIGHTS</Button>
