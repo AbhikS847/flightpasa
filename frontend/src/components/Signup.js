@@ -1,6 +1,8 @@
 import {React, useState} from 'react';
 import {toast} from 'react-toastify';
 import {Button, Container, Form} from 'react-bootstrap';
+import {useSelector, useDispatch} from 'react-redux';
+import {register} from '../features/auth/authSlice'; 
 
 const Signup = () => {
 
@@ -13,11 +15,24 @@ const Signup = () => {
 
   const {name, email, password, password2} = formData;
 
+  const dispatch = useDispatch();
+
+  const {user, isLoading, isSuccess, message} = useSelector(state => state.auth)
+
   const handleSubmit = (event) => {
     event.preventDefault();
   
     if(password !== password2){
       toast.error('Passwords do not match');
+    }
+    else{
+      const userData = {
+        name,
+        email,
+        password
+      };
+
+      dispatch(register(userData));
     }
   }
 
@@ -30,7 +45,7 @@ const Signup = () => {
 
   return (
     <Container className="component-theme">
-      <h2 className="pt-3">SIGN UP</h2>
+      <h2 className="pt-3">SIGN UP {user}</h2>
       <div>Let's get you started with your Flight Pasa account</div>
       <Form className="component-form" onSubmit={handleSubmit}>
       <div className="small">username</div>

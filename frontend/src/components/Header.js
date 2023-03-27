@@ -41,7 +41,7 @@ const Header = () => {
         <Nav className="mobile-menu-padding" style={{fontSize:20}}>
             <LinkContainer to="/"><Nav.Link onClick={closeMenu} className="pasa-links">Flights</Nav.Link></LinkContainer>
             <LinkContainer to="/pasa"><Nav.Link onClick={closeMenu} className="pasa-links" href="#pasa">Find a pasa</Nav.Link></LinkContainer>
-            <LinkContainer to="/flights"><Nav.Link onClick={closeMenu} className="pasa-links" href="#flights">Post a flight</Nav.Link></LinkContainer>
+            <LinkContainer to="/flights"><Nav.Link onClick={closeMenu} className="pasa-links" href="#flights">Find a flight</Nav.Link></LinkContainer>
             <LinkContainer to="/items"><Nav.Link onClick={closeMenu} className="pasa-links" href="#items">Send items</Nav.Link></LinkContainer>
         </Nav>
         <div style={{marginTop:10, backgroundColor:"#fff", color:"#708abb", border:'2px solid #fff', textAlign:'center', fontFamily:'Barlow Condensed', fontSize:30, boxShadow:'rgba(0, 0, 0, 0.24) 0px 3px 8px'}}>Account </div>
@@ -66,7 +66,7 @@ const Header = () => {
         <Nav style={{fontSize:20}}>
             <LinkContainer to="/"><Nav.Link className="pasa-links">Flights</Nav.Link></LinkContainer>
             <LinkContainer to="/pasa"><Nav.Link className="pasa-links">Find a pasa</Nav.Link></LinkContainer>
-            <LinkContainer to="/flights"><Nav.Link className="pasa-links">Post a flight</Nav.Link></LinkContainer>
+            <LinkContainer to="/flights"><Nav.Link className="pasa-links">Find a flight</Nav.Link></LinkContainer>
             <LinkContainer to="/items"><Nav.Link className="pasa-links">Send items</Nav.Link></LinkContainer>
         </Nav>
         </div>
