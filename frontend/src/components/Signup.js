@@ -1,8 +1,9 @@
-import {React, useState} from 'react';
+import {React, useState, useEffect} from 'react';
 import {toast} from 'react-toastify';
 import {Button, Container, Form} from 'react-bootstrap';
 import {useSelector, useDispatch} from 'react-redux';
-import {register} from '../features/auth/authSlice'; 
+import {register, reset} from '../features/auth/authSlice'; 
+import {useNavigate} from 'react-router-dom';
 
 const Signup = () => {
 
@@ -17,7 +18,9 @@ const Signup = () => {
 
   const dispatch = useDispatch();
 
-  const {user, isLoading, isSuccess, message} = useSelector(state => state.auth)
+  const navigate = useNavigate();
+
+  const {user, isLoading, isSuccess, message, isError} = useSelector(state => state.auth)
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -36,6 +39,18 @@ const Signup = () => {
     }
   }
 
+  useEffect(() => {
+    if(isError){
+      toast.error(message);
+    }
+    //Redirect when logged in
+    if(isSuccess || user){
+      navigate('/');
+    }
+
+    dispatch(reset());
+  }, [isError, isSuccess, user, message, navigate, dispatch]);
+
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -45,7 +60,7 @@ const Signup = () => {
 
   return (
     <Container className="component-theme">
-      <h2 className="pt-3">SIGN UP {user}</h2>
+      <h2 className="pt-3">SIGN UP</h2>
       <div>Let's get you started with your Flight Pasa account</div>
       <Form className="component-form" onSubmit={handleSubmit}>
       <div className="small">username</div>

@@ -1,5 +1,6 @@
 const express = require('express');
 const colors = require('colors');
+const cors = require('cors');
 const dotenv = require('dotenv').config();
 const app = express();
 const {errorHandler} = require('./middleware/errorMiddleware');
@@ -10,6 +11,8 @@ app.use(express.urlencoded({extended:false}));
 const port = process.env.PORT || 5000;
 
 connectDB();
+
+app.use(cors());
 
 app.get("/", (req, res) => {
     res.status(200).json("Welcome to the flight pasa API");
