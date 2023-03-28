@@ -1,6 +1,9 @@
 import Container from 'react-bootstrap/Container';
 import {Navbar, Nav, Button} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
+import {useNavigate} from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux';
+import {logout, reset} from '../features/auth/authSlice';
 import {BsFillPersonFill} from 'react-icons/bs';
 import {RiMenuFill} from 'react-icons/ri';
 import {TfiClose} from 'react-icons/tfi';
@@ -29,6 +32,17 @@ const openMenu = () =>{
 }
 
 const Header = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const {user} = useSelector((state) => state.auth);
+
+  const onLogout = () => {
+    dispatch(logout());
+    dispatch(reset());
+    navigate('/');
+    resetActiveClasses();
+  }
+
     return (
         <Navbar sticky='true' bg="light" expand="lg">
         <Container className="d-flex align-items-center">
@@ -45,7 +59,18 @@ const Header = () => {
             <LinkContainer to="/items"><Nav.Link onClick={closeMenu} className="pasa-links" href="#items">Send items</Nav.Link></LinkContainer>
         </Nav>
         <div style={{marginTop:10, backgroundColor:"#fff", color:"#708abb", border:'2px solid #fff', textAlign:'center', fontFamily:'Barlow Condensed', fontSize:30, boxShadow:'rgba(0, 0, 0, 0.24) 0px 3px 8px'}}>Account </div>
-        <Nav>
+        {user ? (<Nav>
+          <LinkContainer to="/"><Nav.Link onClick={resetActiveClasses} className="pasa-links">
+              <div className="d-flex align-items-center">
+              <div className="px-2" style={{fontSize:24, fontFamily:'Barlow Condensed'}}>{user.name}</div>
+              </div>
+            </Nav.Link></LinkContainer>
+            <LinkContainer to="/login"><Nav.Link onClick={onLogout} className="pasa-links">
+              <div className="d-flex align-items-center">
+              <div className="px-2" style={{fontSize:24, fontFamily:'Barlow Condensed'}}>LOG OUT</div>
+              </div>
+            </Nav.Link></LinkContainer>
+        </Nav>) : (<Nav>
             <LinkContainer to="/login"><Nav.Link onClick={resetActiveClasses} className="pasa-links">
               <div className="d-flex align-items-center">
               <div className="px-2" style={{fontSize:24, fontFamily:'Barlow Condensed'}}>LOG IN</div>
@@ -57,7 +82,7 @@ const Header = () => {
               </div>
             </Nav.Link>
             </LinkContainer>
-        </Nav>
+        </Nav>) }
         </div>
         <div className="login-mobile">
         <Button className="drawer" style={{backgroundColor:'unset', border:'unset'}} onClick={openMenu}><RiMenuFill size={30} /></Button>
@@ -71,7 +96,24 @@ const Header = () => {
         </Nav>
         </div>
         <div className="login-desktop" style={{justifyContent:'flex-end'}}>
-        <Nav>
+        {user ? (        <Nav>
+          <LinkContainer to="/">
+            <Nav.Link onClick={resetActiveClasses} className="pasa-links"  href="#5">
+              <div className="d-flex align-items-center">
+              <BsFillPersonFill size={20} />
+              <div className="px-2" style={{fontSize:22, fontFamily:'Barlow Condensed'}}>{user.name}</div>
+              </div>
+            </Nav.Link>
+          </LinkContainer>
+        <LinkContainer to="/login">
+            <Nav.Link onClick={onLogout} className="pasa-links"  href="#5">
+              <div className="d-flex align-items-center">
+              <BsFillPersonFill size={20} />
+              <div className="px-2" style={{fontSize:22, fontFamily:'Barlow Condensed'}}>LOG OUT</div>
+              </div>
+            </Nav.Link>
+          </LinkContainer>
+        </Nav>) : (<Nav>
         <LinkContainer to="/login">
             <Nav.Link onClick={resetActiveClasses} className="pasa-links"  href="#5">
               <div className="d-flex align-items-center">
@@ -87,7 +129,7 @@ const Header = () => {
               </div>
             </Nav.Link>
           </LinkContainer>
-        </Nav>
+        </Nav>)}
         </div>
         </Container>
       </Navbar>

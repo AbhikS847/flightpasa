@@ -4,6 +4,7 @@ import {Button, Container, Form} from 'react-bootstrap';
 import {useSelector, useDispatch} from 'react-redux';
 import {register, reset} from '../features/auth/authSlice'; 
 import {useNavigate} from 'react-router-dom';
+import Spinner from './Spinner';
 
 const Signup = () => {
 
@@ -56,6 +57,10 @@ const Signup = () => {
       ...prevState,
       [e.target.name]:e.target.value
     }))
+  }
+
+  if(isLoading) {
+    return <Spinner />
   }
 
   return (
